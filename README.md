@@ -1,4 +1,3 @@
-# WRO-Future-Engineers-2025-Tuwaiqs-Peak
 
 ---
 # ⛰️ Team Logo
@@ -11,7 +10,9 @@ Our robot is a camera‑first, servo‑steered, rear‑wheel‑drive platform wh
 
 ---
 # 👷‍♂️ Team Members
-*insert picture*
+<img src="https://github.com/user-attachments/assets/df420f1a-1ffd-4679-99c3-c728850508a5" width="200" height="356">
+<img src="https://github.com/user-attachments/assets/64c0a7ef-2c39-4f24-a726-1a84b37b1a8e" width="200" height="356">
+
 
 ---
 #  The Challenge
@@ -31,7 +32,7 @@ Parking: Enter and stop in the designated zone as instructed.
 ---
 # 🪛 Hardware
 
-## 3 Ultrasonic Sensors (HC-SR04)
+## x4 Ultrasonic Sensors (HC-SR04)
 Overview: Low‑cost, 5 V ultrasonic rangefinders (approx. 2 cm–4 m). Good for simple obstacle detection when used in a front‑left / front‑center / front‑right array.
 
 <img width="292" height="173" alt="image" src="https://github.com/user-attachments/assets/505da7b6-f95d-45e4-9498-076d326b85ef" />
@@ -45,7 +46,7 @@ Overview: Low‑cost, 5 V ultrasonic rangefinders (approx. 2 cm–4 m). Go
 - Narrow beam (~15°) helps with directional obstacle cues when angled.
 
 **How we use it:**
-It gives us a rough estimation of the close-proximity area surrounding the robot so that doesnt bump into walls or obstacles accidentally
+It gives us a rough estimation of the close-proximity area surrounding the robot so that doesnt bump into walls or obstacles accidentally, And when we use four distance sensors in four directions, we can create a map that helps the robot choose the best route for the competition.
 
 ## MPU6500 Gyro + Accelerometer Sensor
 Overview: InvenSense 6‑DOF IMU for heading estimation, stabilization, and odometry aiding. Combines a 3‑axis gyroscope (±250–2000 °/s) and 3‑axis accelerometer (±2–16 g) with configurable digital low‑pass filters and up to ~1 kHz sampling via I²C or SPI.
