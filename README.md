@@ -197,7 +197,7 @@ Overview: Quad‑core Cortex‑A76 SBC with significant CPU/GPU uplift, dual 4K 
 - Strong ecosystem: libraries, guides, and accessories.
 
 **How we use it:**
-The raspberry pi is the brain of the system, it recieves input from sensors to then act upon it by outputing signals to the actuators. It's great since it has a very high response time as well as being compatible with the camera's AI vision and the rest of the sensors and actuators.
+The raspberry pi is the brain of our system, it recieves input from sensors to then act upon it by outputing signals to the actuators. It's great since it has a very high response time as well as being compatible with the camera's AI vision and the rest of the sensors and actuators.
 
 --- 
 
