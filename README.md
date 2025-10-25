@@ -6,13 +6,19 @@
 
 ---
 # 🚗 Overview
-Our robot is a camera‑first, servo‑steered, rear‑wheel‑drive platform where the mechanisms are picked to match the behaviors we want on track. The Raspberry Pi Camera Module 3 on a Raspberry Pi 5 reads the road and sets the “intent,” while a front array of HC‑SR04 sensors acts as close‑range instincts, catching obstacles the camera might miss; the MPU‑6500 gyro smooths heading so the car feels composed through curves. A DS3240 servo, driven cleanly by the PCA9685, turns the wheels with crisp yet stable response, and the rear yellow‑gearbox DC motors, pushed by an L298N, provide simple, predictable thrust—inefficient compared with modern drivers, but consistent when geared and cooled properly. Dual 7.4 V packs and XL4015 buck converters keep compute and actuation on quieter, separate rails, which directly shows up as steadier vision and less jitter in control. Over this hardware, PID controllers shape the driving feel: steering PID keeps the car centered without twitch, speed PID delivers smooth acceleration and confident braking into zones and parking. In short, each hardware choice supports a control behavior—see‑decide‑act—with enough headroom and isolation to stay reliable under competition stress.
+Our robot Tuwaiqy(the robot's name) uses a hybrid obstacle management system that combines computer vision and ultrasonic distance sensing to navigate safely and intelligently. The camera provides visual awareness of the environment, while the ultrasonic sensors measure exact distances to nearby objects. Together, they allow the robot to follow a visible path and avoid collisions in real time, achieving accurate and autonomous movement.
 
 ---
 # 👷‍♂️ Team Members
 <img src="https://github.com/user-attachments/assets/df420f1a-1ffd-4679-99c3-c728850508a5" width="200" height="356">
+
+- Reda Mohammed Albin Ahmed
+- Coder, Strategic designer
+
 <img src="https://github.com/user-attachments/assets/64c0a7ef-2c39-4f24-a726-1a84b37b1a8e" width="200" height="356">
 
+- Ibrahim Alangari
+- 3D Designer, Hardware 
 
 ---
 #  The Challenge
@@ -81,18 +87,20 @@ Overview: Common plastic 1‑stage/2‑stage geared DC motor used for lightweigh
 **How we use it:**
 Used for movement of the rear wheels.
 
-## L298N Dual H-Bridge Motor Driver
-Overview: Legacy bipolar H‑bridge (up to ~2 A/channel) for two brushed DC motors.
+## BTS7960 DC motor driver
+Overview: High‑current MOSFET H‑bridge built from two BTS7960 half‑bridges. Suited for a single brushed DC drive motor with low losses compared to legacy bipolar drivers. Typical modules accept ~6–27 V, with large peak currents (marketing up to ~43 A) and realistic continuous currents in the 10–15 A range with proper heatsinking and airflow.
 
-<img width="215" height="235" alt="image" src="https://github.com/user-attachments/assets/d6688e5f-08e1-40c2-bdee-d33ba2575c15" />
+<img width="222" height="227" alt="image" src="https://github.com/user-attachments/assets/b8c60c7d-cd66-4a00-92ea-7d9fdbfabfa8" />=
 
-### Advantages
+Advantages
 
-- Dirt cheap; lots of tutorials and schematics.
+- High efficiency & torque: Low Rds(on) MOSFETs deliver more voltage at the motor vs. IBT‑2 (BTS7960).
 
-- On‑board 5 V regulator on many modules simplifies wiring.
+- Current headroom: Handles surge/stall currents better (with thermal management).
 
-- Works from a wide input range, handy in a pinch.
+- Built‑in protections: BTS7960 includes over‑current and over‑temperature safeguards.
+
+Straightforward control: RPWM/LPWM + R_EN/L_EN enable simple direction and speed schemes.
 
 **How we use it:**
 Used to control the DC motors.
@@ -161,7 +169,7 @@ Overview: Adjustable buck module (typically up to 5 A) to derive stable 12 V
 - Often includes CC (constant‑current) mode useful for LED loads or battery precharge.
 
 **How we use it:**
-It lowers voltage coming from the batteries from 7.4V to 5V.
+It lowers voltage coming from the batteries from 7.4V to 5V so the raspberry pi doesnt get overloaded.
 
 ## Raspberry Pi Camera Module 3
 
@@ -182,6 +190,23 @@ Overview: Autofocus 12 MP camera (Sony IMX708 family) with wide/standard FOV o
 **How we use it:**
 We are using AI vision on the camera to avoid obstacles with it's color detection capability and to calculate how far an object is by counting the amount of pixels it's color occupies on the camera's FOV.
 
+## PCA9685 16‑Channel Servo Driver
+
+Overview: I²C 12‑bit PWM expander that generates up to 16 hardware PWM channels for servos/LEDs, freeing CPU timers.
+
+<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/bc5fc2f5-e839-4dc8-bb82-bed123f98905" />
+
+Advantages
+
+- Stable, jitter‑free PWM independent of host CPU load.
+
+- Chainable via I²C addresses; simple libraries on Raspberry Pi.
+
+- 3.3 V I²C‑friendly yet can drive 5–7.4 V servo rails (separate V+).
+
+**How we use it:**
+The MPU6500 gyro sensor, the BTS7960 DC motor driver, and the PCA9685 servo motor driver use I2C channels and there arent enough on the raspberry pi so this was the best solution.
+
 ## Raspberry Pi 5
 
 Overview: Quad‑core Cortex‑A76 SBC with significant CPU/GPU uplift, dual 4K HDMI, PCIe, and improved I/O—well‑suited for real‑time perception/planning.
@@ -200,4 +225,98 @@ Overview: Quad‑core Cortex‑A76 SBC with significant CPU/GPU uplift, dual 4K 
 The raspberry pi is the brain of our system, it recieves input from sensors to then act upon it by outputing signals to the actuators. It's great since it has a very high response time as well as being compatible with the camera's AI vision and the rest of the sensors and actuators.
 
 --- 
+# Camera-Based Path Detection
 
+The PiCamera2 continuously captures frames at 640×480 resolution.
+Each frame is processed in OpenCV to detect the open path or track using brightness and edge patterns.
+The image is converted to grayscale, blurred, and filtered using Canny edge detection.
+The largest contour or lane is identified as the path.
+The robot calculates the center of the path (cx):
+If cx is left of center → steer left.
+If cx is right of center → steer right.
+If centered → move straight forward.
+This allows Tuwaiqy to visually follow the safest visible route.
+
+---
+# Ultrasonic Obstacle Detection
+
+While the camera defines the path, the ultrasonic sensors confirm whether that direction is clear and safe:
+
+front = front_ultra.distance_cm
+
+left  = left_ultra.distance_cm
+
+right = right_ultra.distance_cm
+
+back  = back_ultra.distance_cm
+
+Decision Logic:
+
+if front < 15 cm:
+
+    stop()
+    
+    if left > right:
+    
+        turn_left()
+        
+    else:
+    
+        turn_right()
+        
+elif left < 10 cm:
+
+    steer_right()
+    
+elif right < 10 cm:
+
+    steer_left()
+    
+else:
+
+    move_forward()
+    
+The ultrasonic readings take priority for collision prevention, even if the camera sees a clear path.
+
+---
+# Combined Behavior
+
+Camera detects path → provides general direction.
+
+Ultrasonic sensors verify → confirm no nearby obstacle in that direction.
+
+Raspberry Pi 5 fuses both data sources:
+
+- If both camera and sensors agree → move smoothly forward.
+
+- If camera sees open path but ultrasonic detects something close → slow down or stop.
+
+- If sensors detect clear space but no visible path → rely on previous frame or turn slightly to search again.
+
+- Commands are sent through PCA9685 servo driver (for steering) and BTS7960 motor driver (for movement).
+
+## Advantages
+ 
+- Reliable in all conditions: Camera detects overall layout, ultrasonic handles near obstacles.
+
+- Improved accuracy: Fewer false positives or collisions.
+
+- Real-time reaction: Sensors update multiple times per second.
+
+- Light-independent: Works in different lighting or surface colors.
+
+- Smooth navigation: Camera ensures continuous forward motion instead of random turns.
+
+## Disadvantages
+ 
+- More complex integration: Needs synchronization between camera and sensors.
+
+- Processing load: Image processing consumes CPU power.
+
+- Possible interference: Echoes from nearby surfaces can affect readings.
+
+- Calibration required: Must align camera and sensor fields of view carefully.
+
+## Result
+ 
+With this dual-system setup, Tuwaiqy can both see and sense its environment. The camera provides long-range path guidance, while the ultrasonic sensors offer short-range precision safety. This combination makes the robot’s navigation smarter, safer, and more adaptive, aligning perfectly with the WRO Future Engineers challenge goal of developing advanced autonomous mobility systems.
