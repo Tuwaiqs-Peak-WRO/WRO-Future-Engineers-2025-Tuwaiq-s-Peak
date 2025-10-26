@@ -1,322 +1,222 @@
+# Tuwaiqy – Autonomous Robot  
+### by Team Tuwaiq’s Peak
 
 ---
-# ⛰️ Team Logo
-![WhatsApp Image 2025-10-19 at 17 24 52_59760c78](https://github.com/user-attachments/assets/85020a02-1447-4304-8e9d-ff8b65924a06)
 
-
----
-# 🚗 Overview
-Our robot Tuwaiqy(the robot's name) uses a hybrid obstacle management system that combines computer vision and ultrasonic distance sensing to navigate safely and intelligently. The camera provides visual awareness of the environment, while the ultrasonic sensors measure exact distances to nearby objects. Together, they allow the robot to follow a visible path and avoid collisions in real time, achieving accurate and autonomous movement.
-
----
-# 👷‍♂️ Team Members
-<img src="https://github.com/user-attachments/assets/df420f1a-1ffd-4679-99c3-c728850508a5" width="200" height="356">
-
-- Reda Mohammed Albin Ahmed
-- Coder, Strategic designer
-
-<img src="https://github.com/user-attachments/assets/64c0a7ef-2c39-4f24-a726-1a84b37b1a8e" width="200" height="356">
-
-- Ibrahim Alangari
-- 3D Designer, Hardware 
+## Team Members  
+| Name | Role |
+|------|------|
+| Reda Mohammed Albin Ahmed| Coder, Strategic Designer |
+| Ibrahim Alangari | 3D Designer, Hardware Engineer |
 
 ---
-#  The Challenge
 
-Build a small autonomous car that can perceive the track, decide, and drive itself to complete a road‑style course without human input.
+## Challenge Overview  
+**Competition:** WRO Future Engineers  
+**Goal:** Build a small autonomous car that can perceive, decide, and navigate without human input.  
 
-**Robot objectives:**
-
-Lane keeping & path following: Detect lane lines/edges and stay centered while maintaining a target speed.
-
-Traffic logic: Handle intersections, turns, and course markers/signs as specified by the rules.
-
-Obstacle handling: Detect and avoid obstacles without leaving the course.
-
-Parking: Enter and stop in the designated zone as instructed.
+### Objectives
+- Lane keeping and path following  
+- Traffic logic  
+- Obstacle handling  
+- Parking  
 
 ---
-# 🪛 Hardware
 
-## x4 Ultrasonic Sensors (HC-SR04)
-Overview: Low‑cost, 5 V ultrasonic rangefinders (approx. 2 cm–4 m). Good for simple obstacle detection when used in a front‑left / front‑center / front‑right array.
-
-<img width="292" height="173" alt="image" src="https://github.com/user-attachments/assets/505da7b6-f95d-45e4-9498-076d326b85ef" />
-
-### Advantages:
-
-- Inexpensive, widely available, easy to wire (Trig/Echo) and debug with an LED/oscilloscope.
-
-- Robust to lighting conditions; works in dark/sunlight where vision may struggle.
-
-- Narrow beam (~15°) helps with directional obstacle cues when angled.
-
-**How we use it:**
-It gives us a rough estimation of the close-proximity area surrounding the robot so that doesnt bump into walls or obstacles accidentally, And when we use four distance sensors in four directions, we can create a map that helps the robot choose the best route for the competition.
-
-## MPU6500 Gyro + Accelerometer Sensor
-Overview: InvenSense 6‑DOF IMU for heading estimation, stabilization, and odometry aiding. Combines a 3‑axis gyroscope (±250–2000 °/s) and 3‑axis accelerometer (±2–16 g) with configurable digital low‑pass filters and up to ~1 kHz sampling via I²C or SPI.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/ce65d78a-7271-49cc-9851-a843849031a7" />
-
-### Advantages
-
-- Low‑noise gyro (for its class) with DLPF → smoother heading estimates.
-
-- SPI support enables high‑rate reads with low latency; broad library support.
-
-- Compact and low‑power; easy to place near the chassis center of rotation.
-
-**How we use it:**
-Used to precisely detect the position of the gyrosocpe on the field to enable smooth PID control and increased object avoidance.
-
-## 3-6V DC motor with yellow gearbox (TT Motor)
-
-Overview: Common plastic 1‑stage/2‑stage geared DC motor used for lightweight drivetrains.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/6c7bc5fb-0636-4041-81f3-535f7d388686" />
-
-### Advantages
-
-- Very cheap and available with many gear ratios and wheel hubs.
-
-- Simple to drive via H‑bridge; adequate torque for small chassis.
-
-- Good for rapid prototyping and spares during competition.
-
-**How we use it:**
-Used for movement of the rear wheels.
-
-## BTS7960 DC motor driver
-Overview: High‑current MOSFET H‑bridge built from two BTS7960 half‑bridges. Suited for a single brushed DC drive motor with low losses compared to legacy bipolar drivers. Typical modules accept ~6–27 V, with large peak currents (marketing up to ~43 A) and realistic continuous currents in the 10–15 A range with proper heatsinking and airflow.
-
-<img width="222" height="227" alt="image" src="https://github.com/user-attachments/assets/b8c60c7d-cd66-4a00-92ea-7d9fdbfabfa8" />=
-
-Advantages
-
-- High efficiency & torque: Low Rds(on) MOSFETs deliver more voltage at the motor vs. IBT‑2 (BTS7960).
-
-- Current headroom: Handles surge/stall currents better (with thermal management).
-
-- Built‑in protections: BTS7960 includes over‑current and over‑temperature safeguards.
-
-Straightforward control: RPWM/LPWM + R_EN/L_EN enable simple direction and speed schemes.
-
-**How we use it:**
-Used to control the DC motors.
-
-## DS3240 Servo Motor
-Overview: Metal‑gear, high‑torque PWM hobby servo (often rated ≈ 40 kg·cm @ 7.4 V). Useful for steering mechanisms or active sensor mounts.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/0d9cd575-ed87-4c4e-a55b-4832fca8ad4b" />
-
-### Advantages
-
-- Excellent stall torque for size; metal gears and aluminum case (on many variants).
-
-- Standard 3‑wire PWM control; drops into typical RC/robot stacks.
-
-- Operates at 6–8.4 V; good match to a dedicated 7.4 V rail.
-
-**How we use it:**
-Used to steer the two front wheels.
-
-## PCA9685 Servo Motor Driver
-Overview: I²C 12‑bit PWM expander that generates up to 16 hardware PWM channels for servos/LEDs, freeing CPU timers.
-
-<img width="297" height="170" alt="image" src="https://github.com/user-attachments/assets/17577f3f-feb5-4f1d-a2eb-ec3b479acf66" />
-
-### Advantages
-
-- Stable, jitter‑free PWM independent of host CPU load.
-
-- Chainable via I²C addresses; simple libraries on Raspberry Pi.
-
-- 3.3 V I²C‑friendly yet can drive 5–7.4 V servo rails (separate V+).
-
-**How we use it:**
-Controls the servo motor's output.
-
-## 7.4V Lithium-ion batteries (x2)
-Overview: Two independent 2‑cell packs.
-
-<img width="194" height="259" alt="image" src="https://github.com/user-attachments/assets/b8866c4a-5bb7-4de0-b1c8-da94acc2b21c" />
-
-### Advantages
-
-- Electrical isolation reduces brown‑outs and noise coupling into the Raspberry Pi.
-
-- Native 7.4 V matches high‑torque servos (e.g., DS3240) without heavy conversion losses.
-
-- Modular swaps: replace a depleted pack without shutting down the entire robot.
-
-- Fault containment: an issue on one rail is less likely to take down everything.
-
-**How we use it:**
-Power for the whole robot.
-
-## XL4015 Step-down Converter
-Overview: Adjustable buck module (typically up to 5 A) to derive stable 12 V/9 V/5 V rails from the traction battery.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/0819eb18-e5f9-4616-944b-c28641d61844" />
-
-### Advantages
-
-- High current capacity for price; efficiency far better than linear regulators.
-
-- Screw‑terminal/trim‑pot modules are quick to integrate; common footprints.
-
-- Often includes CC (constant‑current) mode useful for LED loads or battery precharge.
-
-**How we use it:**
-It lowers voltage coming from the batteries from 7.4V to 5V so the raspberry pi doesnt get overloaded.
-
-## Raspberry Pi Camera Module 3
-
-Overview: Autofocus 12 MP camera (Sony IMX708 family) with wide/standard FOV options and HDR variants. Primary sensor for vision and lane detection.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/910f6cb8-42ac-475b-a819-7c7838971d42" />
-
-### Advantages
-
-- Autofocus improves clarity for varying distances and vibration.
-
-- Great color detection and masking, useful for obstacles.
-
-- High resolution enables cropping/ROI; good low‑light vs older modules.
-
-- Mature drivers and community support; works seamlessly with Raspberry Pi 5.
-
-**How we use it:**
-We are using AI vision on the camera to avoid obstacles with it's color detection capability and to calculate how far an object is by counting the amount of pixels it's color occupies on the camera's FOV.
-
-## PCA9685 16‑Channel Servo Driver
-
-Overview: I²C 12‑bit PWM expander that generates up to 16 hardware PWM channels for servos/LEDs, freeing CPU timers.
-
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/bc5fc2f5-e839-4dc8-bb82-bed123f98905" />
-
-Advantages
-
-- Stable, jitter‑free PWM independent of host CPU load.
-
-- Chainable via I²C addresses; simple libraries on Raspberry Pi.
-
-- 3.3 V I²C‑friendly yet can drive 5–7.4 V servo rails (separate V+).
-
-**How we use it:**
-The MPU6500 gyro sensor, the BTS7960 DC motor driver, and the PCA9685 servo motor driver use I2C channels and there arent enough on the raspberry pi so this was the best solution.
-
-## Raspberry Pi 5
-
-Overview: Quad‑core Cortex‑A76 SBC with significant CPU/GPU uplift, dual 4K HDMI, PCIe, and improved I/O—well‑suited for real‑time perception/planning.
-
-<img width="275" height="183" alt="image" src="https://github.com/user-attachments/assets/5fcf4a80-e49a-4dab-ad96-da1dc55fc80b" />
-
-### Advantages
-
-- Big performance headroom for OpenCV, TensorRT‑style inference, and Python control.
-
-- Fast I/O (PCIe, higher USB throughput) for cameras, IMUs, and storage.
-
-- Strong ecosystem: libraries, guides, and accessories.
-
-**How we use it:**
-The raspberry pi is the brain of our system, it recieves input from sensors to then act upon it by outputing signals to the actuators. It's great since it has a very high response time as well as being compatible with the camera's AI vision and the rest of the sensors and actuators.
-
---- 
-# Camera-Based Path Detection
-
-The PiCamera2 continuously captures frames at 640×480 resolution.
-Each frame is processed in OpenCV to detect the open path or track using brightness and edge patterns.
-The image is converted to grayscale, blurred, and filtered using Canny edge detection.
-The largest contour or lane is identified as the path.
-The robot calculates the center of the path (cx):
-If cx is left of center → steer left.
-If cx is right of center → steer right.
-If centered → move straight forward.
-This allows Tuwaiqy to visually follow the safest visible route.
+## System Overview  
+Tuwaiqy uses a hybrid navigation and obstacle management system combining computer vision and Time-of-Flight (ToF) distance sensing.  
+The camera provides visual awareness for lane and path detection, while the ToF sensor provides short-range precision distance data.  
+Together, they allow the robot to follow the track, detect obstacles, and navigate autonomously in real time.  
 
 ---
-# Ultrasonic Obstacle Detection
 
-While the camera defines the path, the ultrasonic sensors confirm whether that direction is clear and safe:
+## Hardware Components  
 
-front = front_ultra.distance_cm
+### 1. Raspberry Pi 5 
+<img width="1420" height="798" alt="image" src="https://github.com/user-attachments/assets/4b8ca573-7fd4-4b4b-b9d7-c6f700e3056b" />
+**Processor:** 64-bit Quad-core ARM Cortex-A76 @ 2.4 GHz  
+**GPU:** VideoCore VII (dual 4K support)  
+**Memory:** 8 GB LPDDR4X  
+**Storage:** 32 GB microSD  
+**Networking:** Gigabit Ethernet, Wi-Fi 5, Bluetooth 5.0  
+**Ports:** 2 × USB 3.0, 2 × USB 2.0, 40-pin GPIO  
+**Camera Interface:** 2 × CSI-2  
+**Display:** 2 × micro-HDMI (4K 60 fps)  
+**Power:** USB-C 5 V / 5 A  
+**OS:** Raspberry Pi OS (64-bit)  
+**Dimensions:** 85.6 × 56.5 × 17 mm (~50 g)  
 
-left  = left_ultra.distance_cm
+**Advantages**
+- High performance for AI and computer vision  
+- Full Linux + Python environment  
+- Compact and efficient  
 
-right = right_ultra.distance_cm
-
-back  = back_ultra.distance_cm
-
-Decision Logic:
-
-if front < 15 cm:
-
-    stop()
-    
-    if left > right:
-    
-        turn_left()
-        
-    else:
-    
-        turn_right()
-        
-elif left < 10 cm:
-
-    steer_right()
-    
-elif right < 10 cm:
-
-    steer_left()
-    
-else:
-
-    move_forward()
-    
-The ultrasonic readings take priority for collision prevention, even if the camera sees a clear path.
+**Disadvantages**
+- Requires active cooling  
+- Needs a stable 5 V / 5 A power source  
 
 ---
-# Combined Behavior
 
-Camera detects path → provides general direction.
+### 2. DC-DC Step Down Converter (Mini560)  
+<img width="158" height="145" alt="Screenshot 1447-05-04 at 10 57 44 AM" src="https://github.com/user-attachments/assets/fae33096-4bd5-4f1b-a38e-c072c11e7097" />
+**Output:** 3.3 / 5 / 9 / 12 V (adjustable)  
+**Current:** Up to 8 A (>90 % efficiency)  
+**Weight:** 7 g  
+**Role:** Provides 5 V power for the Raspberry Pi and logic circuits.  
 
-Ultrasonic sensors verify → confirm no nearby obstacle in that direction.
+---
 
-Raspberry Pi 5 fuses both data sources:
+### 3. Raspberry Pi Active Cooler  
+<img width="140" height="82" alt="Screenshot 1447-05-04 at 10 58 43 AM" src="https://github.com/user-attachments/assets/ee912d44-039d-47f1-8bdb-7358493ed084" />
+Compact fan-based cooler mounted via GPIO to prevent thermal throttling during high CPU usage.  
 
-- If both camera and sensors agree → move smoothly forward.
+---
 
-- If camera sees open path but ultrasonic detects something close → slow down or stop.
+### 4. Gyroscope (BNO085)  
+<img width="219" height="149" alt="Screenshot 1447-05-04 at 10 59 45 AM" src="https://github.com/user-attachments/assets/47f14870-e7d3-4a53-8624-dbac9253f1f1" />
+**Type:** 9-axis IMU (accelerometer + gyroscope + magnetometer)  
+**Interface:** I²C / SPI  
+**Voltage:** 3.3–5 V  
+**Role:** Provides orientation and motion feedback for PID and steering control.  
 
-- If sensors detect clear space but no visible path → rely on previous frame or turn slightly to search again.
+---
 
-- Commands are sent through PCA9685 servo driver (for steering) and BTS7960 motor driver (for movement).
+### 5. OLED Display (0.96 in) 
+<img width="219" height="200" alt="Screenshot 1447-05-04 at 11 00 40 AM" src="https://github.com/user-attachments/assets/754eff68-b34b-44ec-aa9d-ce8144c6c592" />
+**Resolution:** 128 × 64 pixels  
+**Interface:** I²C / SPI  
+**Voltage:** 3.3–5 V  
+**Role:** Displays system information and debugging data.  
 
-## Advantages
- 
-- Reliable in all conditions: Camera detects overall layout, ultrasonic handles near obstacles.
+---
 
-- Improved accuracy: Fewer false positives or collisions.
+### 6. Push Button  
+<img width="209" height="161" alt="Screenshot 1447-05-04 at 11 03 05 AM" src="https://github.com/user-attachments/assets/f67bcd61-15c0-4a4c-89a9-35ea4ce64238" />
+**Type:** Momentary (Normally Open)  
+**Role:** Used for manual start or reset input.  
 
-- Real-time reaction: Sensors update multiple times per second.
+---
 
-- Light-independent: Works in different lighting or surface colors.
+### 7. Buzzer  
+<img width="209" height="195" alt="Screenshot 1447-05-04 at 11 04 08 AM" src="https://github.com/user-attachments/assets/c925b2a0-7310-487b-8a51-a365f5e2a5ab" />
+**Voltage:** 3–5 V (active)  
+**Role:** Provides audio feedback for system events such as start, stop, or error alerts.  
 
-- Smooth navigation: Camera ensures continuous forward motion instead of random turns.
+---
 
-## Disadvantages
- 
-- More complex integration: Needs synchronization between camera and sensors.
+### 8. Raspberry Pi Camera Module 3 (Wide)  
+<img width="205" height="158" alt="Screenshot 1447-05-04 at 11 04 52 AM" src="https://github.com/user-attachments/assets/7ee45f71-e1e4-4862-9177-f4cef0711623" />
+**Resolution:** 12 MP  
+**Video:** 1080p @ 60 fps  
+**Interface:** CSI  
+**Lens:** Fixed-focus wide-angle  
+**Role:** Main vision system for lane detection and path recognition.  
 
-- Processing load: Image processing consumes CPU power.
+---
 
-- Possible interference: Echoes from nearby surfaces can affect readings.
+### 9. Step-Up Converter (XL6019)  
+<img width="273" height="242" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/52ffe352-581b-45dc-b381-d375202a45ed" />
+**Input:** 5–32 V → **Output:** 5–35 V (adjustable up to 4 A)  
+**Role:** Boosts voltage for servos or higher-load components.  
 
-- Calibration required: Must align camera and sensor fields of view carefully.
+---
 
-## Result
- 
-With this dual-system setup, Tuwaiqy can both see and sense its environment. The camera provides long-range path guidance, while the ultrasonic sensors offer short-range precision safety. This combination makes the robot’s navigation smarter, safer, and more adaptive, aligning perfectly with the WRO Future Engineers challenge goal of developing advanced autonomous mobility systems.
+### 10. RGB LED  
+<img width="190" height="185" alt="Screenshot 1447-05-04 at 11 13 34 AM" src="https://github.com/user-attachments/assets/a4e98489-56fe-418b-b040-95fb9fa7103a" />
+**Type:** 3-channel (R, G, B)  
+**Voltage:** ~3.2 V per channel  
+**Control:** PWM  
+**Role:** Visual indicator for operating states (ready, running, or error).  
+
+---
+
+### 11. Nihewo 6500 mAh LiPo Battery (90C)  
+<img width="192" height="202" alt="image" src="https://github.com/user-attachments/assets/98bc96f4-0ffe-46a7-8396-3a00d67cd0c1" />
+**Voltage:** 7.4 V  
+**Discharge Rate:** 90 C  
+**Role:** Main power source for all modules.  
+
+---
+
+### 12. Servo Motor (40 kg·cm)  
+<img width="192" height="202" alt="Screenshot 1447-05-04 at 11 15 58 AM" src="https://github.com/user-attachments/assets/98aa4383-5e4b-49b4-8f08-e2068e6a015f" />
+**Voltage:** 6–12 V  
+**Range:** 180°  
+**Role:** Controls the steering of the front wheels.  
+
+---
+
+### 13. Servo Motor Driver (PCA9685PW)  
+<img width="204" height="102" alt="Screenshot 1447-05-04 at 11 17 08 AM" src="https://github.com/user-attachments/assets/7749815b-eab6-44ce-811a-20ae7c0f828a" />
+**Channels:** 16  
+**Interface:** I²C  
+**Voltage:** 5 V  
+**Role:** Controls the steering servo and other PWM-based actuators.  
+
+---
+
+### 14. DC Motor with Encoder (620 RPM)  
+<img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/64784d68-058e-4be5-a217-edf7154162c9" />
+**Voltage:** 12 V  
+**Feedback:** Encoder output for speed monitoring  
+**Role:** Rear-wheel drive and speed feedback for closed-loop control.  
+
+---
+
+### 15. IBT-4 DC Motor Driver 
+<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 21 07 AM" src="https://github.com/user-attachments/assets/e782f217-ae12-4de8-8917-34c535d7f0c0" />
+**Voltage:** 5–36 V  
+**Current:** Up to 43 A peak  
+**Control:** PWM  
+**Role:** Drives high-torque DC motors for movement.  
+
+---
+
+### 16. TOF200C-VL53L0X  
+<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/b8b67f98-9c6c-4fea-8307-4a565b7e8525" />
+**Range:** Up to 2 m  
+**Accuracy:** ±3 %  
+**Interface:** I²C  
+**Voltage:** 2.6–5 V  
+**Role:** Provides short-range distance measurements for obstacle detection and avoidance.  
+
+---
+
+## System Integration  
+
+**Power**
+- Nihewo 7.4 V battery powers the system.  
+- Mini560 converter outputs regulated 5 V for logic and control circuits.  
+- XL6019 step-up converter provides higher voltage for servo operation.  
+
+**Control**
+- Raspberry Pi 5 handles computer vision and sensor fusion.  
+- BNO085 IMU provides stabilization data.  
+- TOF sensor measures distance for real-time obstacle management.  
+
+**Motion**
+- IBT-4 driver powers the rear DC motors.  
+- PCA9685 controls the front steering servo.  
+- Encoders provide feedback for accurate speed control.  
+
+**Feedback**
+- OLED display shows live data and status.  
+- RGB LED and Buzzer provide visual and audio feedback.  
+- Push Button allows manual start or reset.  
+
+---
+
+## System Flow  
+
+```text
+Camera + TOF Sensor
+        ↓
+    Raspberry Pi 5
+        ↓
+ PCA9685 → Servo (Steering)
+ IBT-4 → DC Motors (Drive)
+        ↓
+ OLED + RGB LED + Buzzer (Feedback)
+        ↓
+ Power Distribution → Mini560 / XL6019 from 7.4 V Battery
+
