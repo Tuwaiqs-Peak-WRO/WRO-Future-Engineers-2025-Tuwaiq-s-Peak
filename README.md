@@ -257,6 +257,10 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Role:** Enables the use of multiple ToF sensors with identical I²C addresses for multi-directional distance measurement on our Robot.
 
+---
+
+
+
 ## System Integration  
 
 **Power**
