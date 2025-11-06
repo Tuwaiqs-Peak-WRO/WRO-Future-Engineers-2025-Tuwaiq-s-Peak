@@ -142,9 +142,25 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 ### 8. Step-Up Converter (XL6019)  
 <img width="273" height="242" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/52ffe352-581b-45dc-b381-d375202a45ed" />
 
-**Input:** 5–32 V → **Output:** 5–35 V (adjustable up to 4 A)  
+**Input:** 5–32 V → **Output:** 5–35 V (adjustable)
+
+**Output Current:** Up to 4 A
 
 **Role:** Boosts voltage for servos or higher-load components.  
+
+---
+
+### 9. Step-Down DC-DC
+<img width="273" height="242" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/614bc5e6-aae5-42df-a145-f8d7f581dfd5
+" />
+
+**Input Voltage:** 4 V – 38 V → **Output Voltage:** 1.25 V – 36 V (adjustable)
+
+**Output Current:** Up to 5 A
+
+**Efficiency:** Up to ~96 %
+
+**Role:** Converts higher battery voltage to stable lower voltage to safely power modules like Raspberry Pi, sensors, or motor drivers.
 
 ---
 
