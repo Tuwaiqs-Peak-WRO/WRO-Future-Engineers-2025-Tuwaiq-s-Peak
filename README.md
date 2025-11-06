@@ -224,7 +224,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 15. TOF200C-VL53L0X  
+### 15. (2x) TOF200C-VL53L0X  
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/b8b67f98-9c6c-4fea-8307-4a565b7e8525" />
 
 **Range:** Up to 2 m  
@@ -233,9 +233,23 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Interface:** I²C  
 
-**Voltage:** 2.6–5 V  
+**Voltage:** 2.5V 
 
-**Role:** Provides short-range distance measurements for obstacle detection and avoidance.  
+**Role:** Provides short-range distance on the right and on the left sides of the robot
+
+---
+### 15. (2x) TOF400C-VL53L0X  
+<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/ddc9f21c-8760-4d32-b97f-49416f78a9a6" />
+
+**Range:** Up to 4 m  
+
+**Accuracy:** ±3 %  
+
+**Interface:** I²C  
+
+**Voltage:** 2.5V
+
+**Role:** Provides higher-range distance on the front side of the robot
 
 ---
 
