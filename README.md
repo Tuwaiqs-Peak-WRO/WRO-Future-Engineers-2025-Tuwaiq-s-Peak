@@ -233,12 +233,12 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Interface:** I²C  
 
-**Voltage:** 2.5V 
+**Voltage:** 3.3V 
 
 **Role:** Provides short-range distance on the right and on the left sides of the robot
 
 ---
-### 15. (2x) TOF400C-VL53L0X  
+### 16. (2x) TOF400C-(VL53L1X)  
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/ddc9f21c-8760-4d32-b97f-49416f78a9a6" />
 
 **Range:** Up to 4 m  
@@ -247,13 +247,13 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Interface:** I²C  
 
-**Voltage:** 2.5V
+**Voltage:** 3.3V
 
-**Role:** Provides higher-range distance on the front side of the robot
+**Role:** Provides long-range distance measurements for front obstacle detection and navigation.
 
 ---
 
-### 16. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
+### 17. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/1d0d790a-9ad0-4e28-a954-7d4a0f626d3a" />
 
 **Name:** TCA9548A 1-to-8 I²C Multiplexer
