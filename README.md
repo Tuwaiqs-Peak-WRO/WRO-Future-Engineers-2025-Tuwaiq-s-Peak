@@ -69,7 +69,6 @@ Together, they allow the robot to follow the track, detect obstacles, and naviga
 - Needs a stable 5 V / 5 A power source  
 
 ---
-
 ### 2. DC-DC Step Down Converter (Mini560)  
 <img width="158" height="145" alt="Screenshot 1447-05-04 at 10 57 44 AM" src="https://github.com/user-attachments/assets/fae33096-4bd5-4f1b-a38e-c072c11e7097" />
 
@@ -244,6 +243,10 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 **Role:** Provides short-range distance measurements for obstacle detection and avoidance.  
 
 ---
+
+### 17. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
+<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="![download](https://github.com/user-attachments/assets/a206f7a0-a818-4b79-b345-2aee467ceee8)" />
+
 
 ## System Integration  
 
