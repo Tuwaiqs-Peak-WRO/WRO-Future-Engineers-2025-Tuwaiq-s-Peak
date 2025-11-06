@@ -247,6 +247,15 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 ### 17. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/1d0d790a-9ad0-4e28-a954-7d4a0f626d3a" />
 
+**Name:** TCA9548A 1-to-8 I²C Multiplexer
+
+**Interface:** I²C  
+
+**Voltage:** 1.65V – 5.5V
+
+**Address Pins:** A0, A1, A2 (allow up to 8 multiplexers on the same I²C bus)
+
+**Role:** Enables the use of multiple ToF sensors with identical I²C addresses for multi-directional distance measurement on our Robot.
 
 ## System Integration  
 
