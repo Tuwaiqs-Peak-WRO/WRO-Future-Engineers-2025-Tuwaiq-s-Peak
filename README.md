@@ -70,7 +70,7 @@ Together, they allow the robot to follow the track, detect obstacles, and naviga
 
 ---
 ### 2. DC-DC Step Down Converter (Mini560)  
-<img width="158" height="145" alt="Screenshot 1447-05-04 at 10 57 44 AM" src="https://github.com/user-attachments/assets/fae33096-4bd5-4f1b-a38e-c072c11e7097" />
+<img width="158" height="145" alt="https://github.com/user-attachments/assets/5b1cc903-37f5-4977-b93a-1d822eb6c3ab" />
 
 **Output:** 3.3 / 5 / 9 / 12 V (adjustable)  
 
