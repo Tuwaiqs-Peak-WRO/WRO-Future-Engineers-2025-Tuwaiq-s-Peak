@@ -245,7 +245,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 ---
 
 ### 17. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
-<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="![download](https://github.com/user-attachments/assets/a206f7a0-a818-4b79-b345-2aee467ceee8)" />
+<img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/a206f7a0-a818-4b79-b345-2aee467ceee8" />
 
 
 ## System Integration  
