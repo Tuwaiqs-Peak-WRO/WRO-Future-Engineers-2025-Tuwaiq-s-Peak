@@ -157,20 +157,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 10. RGB LED  
-<img width="190" height="185" alt="Screenshot 1447-05-04 at 11 13 34 AM" src="https://github.com/user-attachments/assets/a4e98489-56fe-418b-b040-95fb9fa7103a" />
-
-**Type:** 3-channel (R, G, B)  
-
-**Voltage:** ~3.2 V per channel  
-
-**Control:** PWM  
-
-**Role:** Visual indicator for operating states (ready, running, or error).  
-
----
-
-### 11. Nihewo 6500 mAh LiPo Battery (90C)  
+### 10. Nihewo 6500 mAh LiPo Battery (90C)  
 <img width="192" height="202" alt="image" src="https://github.com/user-attachments/assets/98bc96f4-0ffe-46a7-8396-3a00d67cd0c1" />
 
 **Voltage:** 7.4 V  
@@ -181,7 +168,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 12. Servo Motor (40 kg·cm)  
+### 11. Servo Motor (40 kg·cm)  
 <img width="192" height="202" alt="Screenshot 1447-05-04 at 11 15 58 AM" src="https://github.com/user-attachments/assets/98aa4383-5e4b-49b4-8f08-e2068e6a015f" />
 
 **Voltage:** 6–12 V  
@@ -192,7 +179,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 13. Servo Motor Driver (PCA9685PW)  
+### 12. Servo Motor Driver (PCA9685PW)  
 <img width="204" height="102" alt="Screenshot 1447-05-04 at 11 17 08 AM" src="https://github.com/user-attachments/assets/7749815b-eab6-44ce-811a-20ae7c0f828a" />
 
 **Channels:** 16  
@@ -205,7 +192,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 14. DC Motor with Encoder (620 RPM)  
+### 13. DC Motor with Encoder (620 RPM)  
 <img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/64784d68-058e-4be5-a217-edf7154162c9" />
 
 **Voltage:** 12 V  
@@ -216,7 +203,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 15. IBT-4 DC Motor Driver 
+### 14. IBT-4 DC Motor Driver 
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 21 07 AM" src="https://github.com/user-attachments/assets/e782f217-ae12-4de8-8917-34c535d7f0c0" />
 
 **Voltage:** 5–36 V  
@@ -229,7 +216,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 16. TOF200C-VL53L0X  
+### 15. TOF200C-VL53L0X  
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/b8b67f98-9c6c-4fea-8307-4a565b7e8525" />
 
 **Range:** Up to 2 m  
@@ -244,7 +231,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 17. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
+### 16. TCA9548A 1-To-8 I2C 8 -Way Multi-Channel Expansion Board IIC Module Development Board
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/1d0d790a-9ad0-4e28-a954-7d4a0f626d3a" />
 
 **Name:** TCA9548A 1-to-8 I²C Multiplexer
