@@ -149,7 +149,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 ---
 
 ### 9. (2x) NL1836HP battery
-<img width="219" height="149" alt="Screenshot 1447-05-04 at 10 59 45 AM" src="https://github.com/user-attachments/assets/05f37cf8-fd68-4464-a536-e314c7fb1925" />
+<img width="200" height="200" alt="Screenshot 1447-05-04 at 10 59 45 AM" src="https://github.com/user-attachments/assets/05f37cf8-fd68-4464-a536-e314c7fb1925" />
 
 **Voltage:** 3.6 V
 
