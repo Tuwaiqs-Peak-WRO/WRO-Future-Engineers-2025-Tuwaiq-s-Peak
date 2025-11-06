@@ -241,7 +241,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 **Role:** Provides short-range distance on the right and on the left sides of the robot
 
 ---
-### 16. (2x) TOF400C-VL53L1X
+### 16. TOF400C-VL53L1X
 <img width="221" height="176" alt="Screenshot 1447-05-04 at 11 22 43 AM" src="https://github.com/user-attachments/assets/ddc9f21c-8760-4d32-b97f-49416f78a9a6" />
 
 **Range:** Up to 4 m  
