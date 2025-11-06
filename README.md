@@ -70,14 +70,14 @@ Together, they allow the robot to follow the track, detect obstacles, and naviga
 
 ---
 
-### 3. Raspberry Pi Active Cooler  
+### 2. Raspberry Pi Active Cooler  
 <img width="140" height="82" alt="Screenshot 1447-05-04 at 10 58 43 AM" src="https://github.com/user-attachments/assets/ee912d44-039d-47f1-8bdb-7358493ed084" />
 
 Compact fan-based cooler mounted via GPIO to prevent thermal throttling during high CPU usage.  
 
 ---
 
-### 4. Gyroscope (BNO085)  
+### 3. Gyroscope (BNO085)  
 <img width="219" height="149" alt="Screenshot 1447-05-04 at 10 59 45 AM" src="https://github.com/user-attachments/assets/47f14870-e7d3-4a53-8624-dbac9253f1f1" />
 
 **Type:** 9-axis IMU (accelerometer + gyroscope + magnetometer)  
@@ -90,7 +90,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 5. OLED Display (0.96 in) 
+### 4. OLED Display (0.96 in) 
 <img width="219" height="200" alt="Screenshot 1447-05-04 at 11 00 40 AM" src="https://github.com/user-attachments/assets/754eff68-b34b-44ec-aa9d-ce8144c6c592" />
 
 **Resolution:** 128 × 64 pixels  
@@ -103,7 +103,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 6. Push Button  
+### 5. Push Button  
 <img width="209" height="161" alt="Screenshot 1447-05-04 at 11 03 05 AM" src="https://github.com/user-attachments/assets/f67bcd61-15c0-4a4c-89a9-35ea4ce64238" />
 
 **Type:** Momentary (Normally Open)  
@@ -112,7 +112,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 7. Raspberry Pi Camera Module 3 (Wide)  
+### 6. Raspberry Pi Camera Module 3 (Wide)  
 <img width="205" height="158" alt="Screenshot 1447-05-04 at 11 04 52 AM" src="https://github.com/user-attachments/assets/7ee45f71-e1e4-4862-9177-f4cef0711623" />
 
 **Resolution:** 12 MP  
@@ -127,7 +127,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 8. Step-Up Converter (XL6019)  
+### 7. Step-Up Converter (XL6019)  
 <img width="273" height="242" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/52ffe352-581b-45dc-b381-d375202a45ed" />
 
 **Input:** 5–32 V → **Output:** 5–35 V (adjustable)
@@ -138,7 +138,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 9. DC-DC Step Down Converter (Mini560)
+### 8. DC-DC Step Down Converter (Mini560)
 <img width="200" height="200" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/c2de9529-f7a8-4925-964d-74d6c8a1edbe" />
 
 **Output:** 3.3 / 5 / 9 / 12 V (adjustable)  
