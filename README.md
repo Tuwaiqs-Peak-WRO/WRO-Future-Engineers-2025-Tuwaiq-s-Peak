@@ -159,12 +159,23 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Type:** 18650 Li-ion rechargeable cell
 
-**Role:** Provides high-capacity, stable power for sensors, control boards, and medium-load robotic modules.
+**Role:** Provides high Current to power our motor
 
 ---
 
+### 10. (2x) NITECORE NL1836 Battery
+<img width="200" height="200" alt="Screenshot 1447-05-04 at 10 59 45 AM" src="https://github.com/user-attachments/assets/aa07b1e6-154a-48a5-bb77-5a2aa022e7bf" />
+
+**Voltage:** 3.6 V 
+
+**Capacity:** 3,600 mAh 
+
+**Continuous Discharge Current:** 3 A 
+
+**Role:** Reliable power source for the Raspperry pi 5
+
 ### 10. Servo Motor (40 kg·cm)  
-<img width="192" height="202" alt="Screenshot 1447-05-04 at 11 15 58 AM" src="https://github.com/user-attachments/assets/98aa4383-5e4b-49b4-8f08-e2068e6a015f" />
+<img width="192" height="202" alt="Screenshot 1447-05-04 at 11 15 58 AM" src="https://github.com/user-attachments/assets/98aa4383-5e4b-49b4-8f08-e2068e6a015f"/>
 
 **Voltage:** 6–12 V  
 
