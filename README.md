@@ -69,18 +69,6 @@ Together, they allow the robot to follow the track, detect obstacles, and naviga
 - Needs a stable 5 V / 5 A power source  
 
 ---
-### 2. DC-DC Step Down Converter (Mini560)  
-<img width="158" height="145" alt="https://github.com/user-attachments/assets/5b1cc903-37f5-4977-b93a-1d822eb6c3ab" />
-
-**Output:** 3.3 / 5 / 9 / 12 V (adjustable)  
-
-**Current:** Up to 8 A (>90 % efficiency)  
-
-**Weight:** 7 g  
-
-**Role:** Provides 5 V power for the Raspberry Pi and logic circuits.  
-
----
 
 ### 3. Raspberry Pi Active Cooler  
 <img width="140" height="82" alt="Screenshot 1447-05-04 at 10 58 43 AM" src="https://github.com/user-attachments/assets/ee912d44-039d-47f1-8bdb-7358493ed084" />
@@ -150,16 +138,16 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 9. Step-Down DC-DC
+### 9. DC-DC Step Down Converter (Mini560)
 <img width="200" height="200" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/c2de9529-f7a8-4925-964d-74d6c8a1edbe" />
 
-**Input Voltage:** 4 V – 38 V → **Output Voltage:** 1.25 V – 36 V (adjustable)
+**Output:** 3.3 / 5 / 9 / 12 V (adjustable)  
 
-**Output Current:** Up to 5 A
+**Current:** Up to 8 A (>90 % efficiency)  
 
-**Efficiency:** Up to ~96 %
+**Weight:** 7 g  
 
-**Role:** Converts higher battery voltage to stable lower voltage to safely power modules like Raspberry Pi, sensors, or motor drivers.
+**Role:** Provides 5V power for the Raspberry Pi and logic circuits.  
 
 ---
 
