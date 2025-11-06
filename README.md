@@ -148,14 +148,16 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 ---
 
-### 9. Nihewo 6500 mAh LiPo Battery (90C)  
-<img width="192" height="202" alt="image" src="https://github.com/user-attachments/assets/98bc96f4-0ffe-46a7-8396-3a00d67cd0c1" />
+### 9.
+**Voltage:** 3.6 V
 
-**Voltage:** 7.4 V  
+**Capacity:** 3600 mAh
 
-**Discharge Rate:** 90 C  
+**Discharge Rate:** 8 A (continuous)
 
-**Role:** Main power source for all modules.  
+**Type:** 18650 Li-ion rechargeable cell
+
+**Role:** Provides high-capacity, stable power for sensors, control boards, and medium-load robotic modules.
 
 ---
 
