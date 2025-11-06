@@ -151,7 +151,7 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 ---
 
 ### 9. Step-Down DC-DC
-<img width="200" height="200" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/614bc5e6-aae5-42df-a145-f8d7f581dfd5" />
+<img width="200" height="200" alt="Screenshot 1447-05-04 at 11 10 43 AM" src="https://github.com/user-attachments/assets/c2de9529-f7a8-4925-964d-74d6c8a1edbe" />
 
 **Input Voltage:** 4 V – 38 V → **Output Voltage:** 1.25 V – 36 V (adjustable)
 
