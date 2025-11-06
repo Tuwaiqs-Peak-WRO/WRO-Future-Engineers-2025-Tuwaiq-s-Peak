@@ -174,6 +174,8 @@ Compact fan-based cooler mounted via GPIO to prevent thermal throttling during h
 
 **Role:** Reliable power source for the Raspperry pi 5
 
+---
+
 ### 11. Servo Motor (40 kg·cm)  
 <img width="192" height="202" alt="Screenshot 1447-05-04 at 11 15 58 AM" src="https://github.com/user-attachments/assets/98aa4383-5e4b-49b4-8f08-e2068e6a015f"/>
 
